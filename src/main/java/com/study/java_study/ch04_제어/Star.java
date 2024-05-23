@@ -14,8 +14,10 @@ public class Star {
 
          */
 
+
+
         for(int i = 0; i < 5; i++) {
-            System.out.println("");
+            System.out.println(" ");
             for (int j = 0; j < i + 1; j++) {
                 System.out.print("*");
             }
@@ -33,8 +35,9 @@ public class Star {
 
          */
 
+
         for (int i = 0; i < 5; i++) {
-            System.out.println("");
+            System.out.println(" ");
             for (int j = 0; j < 5 - i; j++) {
                 System.out.print("*");
             }
@@ -52,8 +55,10 @@ public class Star {
 
          */
 
+
+
         for (int i = 0; i < 5; i++) {
-            System.out.println("");  // 전체 코드 줄바꿈
+            System.out.println(" ");  // 전체 코드 줄바꿈
             for (int j = 0; j < 5 - i; j++) {
                 System.out.print(" "); // 각각의 열에 공백을 만듬
             }
@@ -74,10 +79,12 @@ public class Star {
 
          */
 
+
+
         for (int i = 0; i < 5; i++) {
-            System.out.println("");
-            for (int j = 0; j < 5 - i; j++) {
-                System.out.print("");
+            System.out.println(" ");
+            for (int j = 0; j < 4 - i; j++) {
+                System.out.print(" ");
             }
             for (int k = 0; k < i * 2 + 1; k++) {
                 System.out.print("*");
