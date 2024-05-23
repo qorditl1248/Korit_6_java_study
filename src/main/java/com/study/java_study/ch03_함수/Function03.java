@@ -20,5 +20,13 @@ public class Function03 {
         System.out.println(student.phone);
     }
 
+    void fx03(Student student) {
+        System.out.println("fx03 함수 호출");
+        System.out.println(student.StudentCode);
+        System.out.println(student.name);
+        System.out.println(student.age);
+        System.out.println(student.phone);
+    }
+
 
 }
