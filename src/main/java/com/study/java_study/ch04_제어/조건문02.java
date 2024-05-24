@@ -5,6 +5,13 @@ public class 조건문02 {
         // == 는 "주소값 비교"
         // String 안에 있는 메소드 .equals()로 문자열 비교
         // .equals()는 boolean 값을 리턴함
+        // new 생성을 하게 되면 새로운 주소값이 생김
+
+        // String a = "김준일";
+        // String b = new String("김준일");
+        // a == "김준일" - true
+        // b == "김준일" - false
+
 
         String text = new String("");
         String name = "김준일";
