@@ -10,9 +10,6 @@ public class 입력01 {
 //        String a = scanner.next(); // String 문자열을 리턴
 //        int num = scanner.nextInt(); // int 숫자를 리턴
 
-        System.out.print("A: "); // a: hhh
-        String a = scanner.nextLine();
-        System.out.println("에이: " + a); // hhh
 
         /*
             next() 메소드

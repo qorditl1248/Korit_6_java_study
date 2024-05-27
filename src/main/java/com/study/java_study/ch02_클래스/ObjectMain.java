@@ -1,4 +1,4 @@
-package com.study.java_study.ch02_클래스01;
+package com.study.java_study.ch02_클래스;
 
 public class ObjectMain {
 
@@ -21,7 +21,7 @@ public class ObjectMain {
         System.out.println(objectA1.num); // 20
         System.out.println(objectA2.num); // 30
 
-        System.out.println(objectA1.name); // null
+        System.out.println(objectA1.name = "신선애");
 
 
 

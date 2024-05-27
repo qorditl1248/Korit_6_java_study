@@ -1,4 +1,4 @@
-package com.study.java_study.ch02_클래스01;
+package com.study.java_study.ch02_클래스;
 
 public class StudentMain {
     public static void main(String[] args) {
