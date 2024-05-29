@@ -12,7 +12,7 @@ public class ArrayMain01 {
         for(int i = 0; i < 100; i++) {
             nums[i] = (i + 1) * 10;
         }
-        for (int num : nums) {        // 반복해라. int num이 초기화(선언) : nums(배열)
+        for (int num : nums) {        // int num이 초기화(선언) : nums(배열)
             System.out.println(num);
         }
 

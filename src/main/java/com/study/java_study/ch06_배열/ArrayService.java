@@ -37,7 +37,7 @@ public class ArrayService {
                     }
                     names = newNames; // newNames의 주소를 names에 넣음, newNames는 필요없어짐
                     System.out.print("등록 할 이름: ");
-                    names[names.length - 1] = scanner.nextLine(); // 배열의 끝에 넣어줌
+                    names[names.length - 1] = scanner.nextLine();
                     System.out.println("등록 완료!");
                     break;
 
