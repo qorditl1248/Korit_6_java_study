@@ -7,6 +7,7 @@ public class BookEntity {
     private String publisher;
 
     public BookEntity() {
+
     }
 
     public BookEntity(int bookId, String bookName, String author, String publisher) {
