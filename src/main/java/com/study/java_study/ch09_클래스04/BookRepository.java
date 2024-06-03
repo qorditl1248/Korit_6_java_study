@@ -4,6 +4,8 @@ package com.study.java_study.ch09_클래스04;
 import com.study.java_study.ch04_제어.For01;
 
 import javax.swing.plaf.IconUIResource;
+import java.awt.print.Book;
+import java.util.Arrays;
 
 // 저장소 -> CRUD
 public class BookRepository {
@@ -19,16 +21,16 @@ public class BookRepository {
     }
 
     private void extendBooks() {
-        // 기존 배열보다 크기가 하나 더 큰 배열을 생성한다. (기존 배열 books)
-        BookEntity[] newBooks = new BookEntity[books.length + 1];
+//        // 기존 배열보다 크기가 하나 더 큰 배열을 생성한다. (기존 배열 books)
+//        BookEntity[] newBooks = new BookEntity[books.length + 1];
+//
+//        // 기존 배열의 정보를 새로운 배열로 모두 옮긴다. 이 때 마지막 인덱스의 값은 빈값이다.
+//        for(int i = 0; i < books.length; i++) {
+//            newBooks[i] = books[i];
+//        }
 
-        // 기존 배열의 정보를 새로운 배열로 모두 옮긴다. 이 때 마지막 인덱스의 값은 빈값이다.
-        for(int i = 0; i < books.length; i++) {
-            newBooks[i] = books[i];
-        }
-
-        // 기존 배열의 주소가 들어있는 books 변수에 새로운 배열의 주소를 대입한다.
-        books = newBooks;
+        // 기존 배열보다 크기가 하나 더 큰 배열을 옮김
+        books = Arrays.copyOf(books, books.length + 1); // books 배열 -> books.length + 1
     }
 
     private int getLastIndex() {  // 인덱스 마지막 자리에 넣어줌
@@ -43,7 +45,7 @@ public class BookRepository {
         books[getLastIndex()] = book;
     }
 
-    // 단건조회
+    // 단건조회, 책 번호/아이디
     public BookEntity findBookByBookId(int bookId) {
         BookEntity findBook = null;
 
@@ -58,7 +60,7 @@ public class BookRepository {
         return findBook;   // for문이 끝나고 맞는 값이 없으면 null 값 반환
     }
 
-    // 단건조회
+    // 단건조회, 책 이름
     public BookEntity findBookByBookName(String bookName) {
         BookEntity findBook = null;
 
@@ -172,7 +174,7 @@ public class BookRepository {
 
     // 삭제
     public void deleteBookByBookId(int bookId) {
-        int findIndex = IndexOfBookId(bookId);
+        int findIndex = IndexOfBookId(bookId); // bookId를 가지고 있는 도서의 인덱스를 찾는거
         BookEntity[] newBooks = new BookEntity[books.length - 1];  // 삭제해야하니 기존것 보다 하나 작은 새 배열 생성
 
 
@@ -188,7 +190,7 @@ public class BookRepository {
                 newBooks[i] = books[i];
                 continue;
             }
-            newBooks[i] = books[i + 1];
+            newBooks[i] = books[i + 1];  // 삭제할 인덱스 번호가 2, 그럼 3번인덱스에 값을 넣어야해서 +1
         }
         books = newBooks; // 주소 옮김
     }

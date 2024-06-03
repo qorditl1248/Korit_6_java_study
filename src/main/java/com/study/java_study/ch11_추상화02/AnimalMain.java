@@ -2,6 +2,7 @@ package com.study.java_study.ch11_추상화02;
 
 public class AnimalMain {
     public static void main(String[] args) {
+//     Animal a = new Animal(); - 오류
 
        Animal[] animals = new Animal[10];
 

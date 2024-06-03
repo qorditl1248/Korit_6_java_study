@@ -38,4 +38,13 @@ public class Student {      // 참조 자료형
     public void setAge(int age) {
         this.age = age;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "code=" + code +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }

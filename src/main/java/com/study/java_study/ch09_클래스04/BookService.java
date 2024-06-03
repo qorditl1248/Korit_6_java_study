@@ -1,5 +1,6 @@
 package com.study.java_study.ch09_클래스04;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class BookService {
@@ -13,23 +14,37 @@ public class BookService {
     }
 
     private String selectMenu() {
-        String menus = "1234q";
+        String[] menus = {"1", "2", "3", "4", "5"};
         String selectedMenu = null;
 
-        while(true) {
-            System.out.print("메뉴 선택: ");
-            selectedMenu = scanner.nextLine();
-            if(menus.contains(selectedMenu)){ // contains - 문자열 포함 여부
-                break;
-            }
-            System.out.println("잘못된 입력입니다. 다시 입력하세요.");
-        }
+//        while (true) {
+//            System.out.print("메뉴 선택: ");
+//            selectedMenu = scanner.nextLine();
+//            if(Arrays.binarySearch(menus, selectedMenu) > -1) { // menus라는 배열에서 selectedMenu가 있는지 찾아라
+//                                                                // 배열의 크기는 0부터 시작
+//                break;
+//            }
+//            System.out.println("잘못된 입력입니다. 다시 입력하세요.");
+//        }
+//        return selectedMenu;
 
-        return selectedMenu;
+        while (true) {
+            System.out.println("메뉴 선택: ");
+            selectedMenu = scanner.nextLine();
+            for(String menu : menus) {
+                if(menu.equalsIgnoreCase(selectedMenu)) {
+                    break;
+                }
+            System.out.println("잘못된 입력, 다시 입력");
+            }
+            return selectedMenu;
+        }
     }
+
 
     public boolean run() {
         boolean isRun = true;
+//        while (isRun) {} - 하위에 하위로 갔을 때 return에 함수를 계속 리턴해줘야함
 
         System.out.println("[ 도서 관리 프로그램 ]");
         System.out.println("1. 도서 등록");
@@ -38,14 +53,14 @@ public class BookService {
         System.out.println("4. 도서 삭제");
         System.out.println("q. 프로그램 종료");
 
-        String selectedMenu = selectMenu();
+        String selectedMenu = selectMenu(); // 메뉴 선택
 
         switch (selectedMenu) {
             case "q":
                 isRun = false;
                 break;
             case "1":
-                registerBook();
+                registerBook(); // 첫 번째로 만듬
                 break;
             case "2":
                 search();
@@ -66,36 +81,37 @@ public class BookService {
 
     private String validateValue(String title) {
         String value = null;
-        while(true) {
+        while (true) {
             System.out.print(title + "명 입력: ");
             value = scanner.nextLine();
-            if(!value.isBlank()) {   // 공백이 아니면 입력받은 값 출력
+            if (!value.isBlank()) {   // 앞에 not을 사용 -> 문자열이 있으면
                 break;
             }
-            System.out.println(title + "명은 공배일 수 없습니다. 다시입력하세요.");
+            System.out.println(title + "명은 공백일 수 없습니다. 다시입력하세요.");
         }
         return value;
     }
 
+    // 도서명 중복 체크
     private String duplicateBookName() {
         String bookName = null;
         while (true) {
             bookName = validateValue("도서");
-            if(bookRepository.findBookByBookName(bookName) == null) {  // 같은 이름이 존재하지 하는지 여부 없으면 입력
+            if(bookRepository.findBookByBookName(bookName) == null) {  // 같은 이름이 존재하지 않으면 break;
                 break;
             }
             System.out.println("해당 도서명이 이미 존재합니다. 다시입력하세요.");
         }
-        return bookName;
+        return bookName; // 입력받은 bookName이 리턴 됨
     }
 
     // 도서 등록
     private void registerBook() {
         System.out.println("[ 도서 등록 ]");
-        int bookId = bookRepository.autoIncrementBookId();
-        String bookName = duplicateBookName(); // 중복 x
+        String bookName = duplicateBookName();
         String author = validateValue("저자");
         String publisher = validateValue("출판사");
+        int bookId = bookRepository.autoIncrementBookId(); // 얘는 순서 상관없음
 
         BookEntity book = new BookEntity(bookId, bookName, author, publisher); // 객체 생성
         bookRepository.saveBook(book);

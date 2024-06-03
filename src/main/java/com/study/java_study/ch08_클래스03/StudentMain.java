@@ -36,9 +36,7 @@ public class StudentMain {
             if(student[i] == null) {
                 continue;
             }
-            System.out.println("학번: " + student[i].getCode());
-            System.out.println("이름: " + student[i].getName());
-            System.out.println("나이: " + student[i].getAge());
+            students.toString();
             System.out.println();
         }
 

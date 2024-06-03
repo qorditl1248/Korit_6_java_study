@@ -23,9 +23,4 @@ public class Function02 {
     String getDate() {
         return "데이터";
     }
-
-
-
-
-
 }
