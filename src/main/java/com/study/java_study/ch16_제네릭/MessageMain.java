@@ -8,7 +8,7 @@ public class MessageMain {
         Message<String> m2 = null;
 
         m1 = new Message<>("10");
-        String s = (String)m1.getMessage(); // 다운캐스팅
+        String s = (String)m1.getMessage(); // 다운캐스팅 (m1이 최상위클래스 object이므로 )
 
         // 와일드 카드 제약 (수용할 수 있는 범위)
 

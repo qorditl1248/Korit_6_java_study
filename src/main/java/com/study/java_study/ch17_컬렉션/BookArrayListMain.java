@@ -34,6 +34,8 @@ public class BookArrayListMain {
         Scanner scanner = new Scanner(System.in);
 
         List<Book> bookList = new ArrayList<>();
+        bookList.add(new Book("책1", "저자1"));
+        System.out.println(bookList);
 
         for(int i = 0; i < 3; i++) {
             String bookName;
@@ -65,16 +67,19 @@ public class BookArrayListMain {
             }
         }
 
+        for(int i = 0; i < bookList.size(); i++) { // get은 인덱스 참조 가져오겠다
+            if(bookList.get(i).getBookName().equals(removeBookName)) {
+                Book removeBook = bookList.remove(i); // 삭제 한 도서 정보를 removebook에 담기
+                System.out.println("삭제한 도서 정보:" + removeBook);
+                break;
+            }
+        }
 
-
-
-
-
-
-
-
-
-
+        // 도서 조회
+        for(int i = 0; i < bookList.size(); i++) {
+            System.out.println("도서명: " + bookList.get(i).getBookName());
+            System.out.println("저자명: " + bookList.get(i).getAuthor());
+        }
 
     }
 }

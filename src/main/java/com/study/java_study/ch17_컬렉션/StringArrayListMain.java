@@ -13,15 +13,18 @@ public class StringArrayListMain {
         ArrayList<String> strList = new ArrayList<>();
         strList.add("test1");
 
-        // 배열 <-> 리스트 변환
-        List<String> list = Arrays.asList(strArray); // 기본적으로 업캐스팅 되어서 들어옴 arrays -> List
 
+        // 배열 <-> 리스트 변환
+        List<String> list = Arrays.asList(strArray); // strArray라는 배열을 List로 변환
         ArrayList<String> list2 = new ArrayList<>();
-        list2.addAll(list); // // 새 리스트를 만들어서 가지고 올 리스트를 다 넣는
+        list2.addAll(list);
+
+        list = List.of("1", "2");
+        System.out.println(list2);
         String[] strArray2 = strList.toArray(new String[strList.size()]);
 
         // 리스트 값 조회
-        System.out.println(strList); // test1
+        System.out.println(strList); // [test1]
 
         // contains 포함 여부
         System.out.println(strList.contains("test1")); // true
@@ -29,6 +32,7 @@ public class StringArrayListMain {
         // 리스트 바로 생성
         List<Integer> nums = List.of(1, 2, 3, 4, 5);
         System.out.println(nums); // [1, 2, 3, 4, 5]
+
 
         // 값 제거
         strList.add("김준일");
@@ -42,13 +46,14 @@ public class StringArrayListMain {
         System.out.println(strList.remove(1)); // 김준이
         System.out.println(strList); // [김준일, 김준삼]
 
-        // arrayList에서 removeAll 가능, List에서는 안됨
+        // List of(), Map of(), Set of() - 값 변경이 안됨, new Array 해서 값 변경
+
         System.out.println(nums);
         List<Integer> nums2 = List.of(1, 3, 5);
         ArrayList<Integer> nums3 = new ArrayList<>();
         nums3.addAll(nums); // [1, 2, 3, 4, 5]
 
-        System.out.println(nums3.removeAll(nums2));
+        System.out.println(nums3.removeAll(nums2)); // true
         System.out.println(nums3); // [2, 4]
 
         // 수정
@@ -57,6 +62,9 @@ public class StringArrayListMain {
 
         nums3.addAll(List.of(1, 2, 3));
         System.out.println(nums3); // [10, 4, 1, 2, 3]
+        nums3.remove(2);
+        System.out.println(nums3); // [10, 4, 2, 3]
+
 
         // 반복
         for(int i = 0; i < nums3.size(); i++) {
@@ -72,7 +80,6 @@ public class StringArrayListMain {
         while (ir.hasNext()) {
             System.out.println(ir.next());
         }
-
 
     }
 }
