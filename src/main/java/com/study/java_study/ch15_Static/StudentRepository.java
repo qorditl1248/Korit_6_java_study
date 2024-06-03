@@ -11,7 +11,7 @@ public class StudentRepository {
 
     public static StudentRepository getInstance() {
         if(instance == null) {
-            instance = new StudentRepository();
+            instance = new StudentRepository(); // 처음 돌때는 instance가 null, 2번째에는 그 주소가 들어있어서 똑같은 주소를 줌
         }
         return instance;    // 객체 주소
     }

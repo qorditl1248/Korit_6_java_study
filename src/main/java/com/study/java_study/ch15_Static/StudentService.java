@@ -9,7 +9,7 @@ public class StudentService {
         if(instance == null) {
             instance = new StudentService();
         }
-        return instance; // 리턴 자료형이 자기자신
+        return instance; // 리턴 자료형이 자기자신, 리턴하기 위해서 생성이 리턴자료형인 studentservice가 생성되어있어야함
     }
 
     public void addStudent() {
