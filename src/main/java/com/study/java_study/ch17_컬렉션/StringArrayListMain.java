@@ -19,6 +19,9 @@ public class StringArrayListMain {
         ArrayList<String> list2 = new ArrayList<>();
         list2.addAll(list);
 
+        // List에 값을 넣을려면 값을 못바꿔도 상관없으면 List.of
+        // 값을 바꿀려고 하면 ArrayList를 만들어서 해야함 
+
         list = List.of("1", "2");
         System.out.println(list2);
         String[] strArray2 = strList.toArray(new String[strList.size()]);
